@@ -82,6 +82,7 @@ public class CharactersController : ControllerBase
 
             if (existingBackpack != null)
             {
+                return Conflict($"You've already added item with id {item} to your backpack");
                 var amount = existingBackpack.Amount;
 
             }
