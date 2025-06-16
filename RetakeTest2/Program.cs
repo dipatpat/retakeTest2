@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using RetakeTest2.DAL;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace RetakeTest2;
@@ -8,6 +10,11 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        string? connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+        builder.Services.AddDbContext<BackpackDbContext>(opt =>
+        {
+            opt.UseSqlServer(connectionString);
+        });
 
         // Add services to the container.
         builder.Services.AddAuthorization();
