@@ -44,9 +44,9 @@ public class BackpackDbContext : DbContext
         );
         
         modelBuilder.Entity<Backpack>().HasData(
-            new Backpack { CharacterId = 1, ItemId = 1, Amount = 2},
-            new Backpack { CharacterId = 2, ItemId = 2, Amount = 3},
-            new Backpack { CharacterId = 3, ItemId = 3, Amount = 4}
+            new Backpack { CharacterId = 1, ItemId = 1, Amount = 1},
+            new Backpack { CharacterId = 2, ItemId = 2, Amount = 1},
+            new Backpack { CharacterId = 3, ItemId = 3, Amount = 1}
         );
         
         modelBuilder.Entity<Title>().HasData(
