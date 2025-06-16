@@ -78,15 +78,19 @@ public class CharactersController : ControllerBase
                 .FirstOrDefaultAsync(i => i.ItemId == item, token);
             
             var existingBackpack = await _context.Backpacks
-                .FirstOrDefaultAsync(b => b.ItemId == item && b.CharacterId == character.CharacterId, token);            
-            
-            var amount = existingBackpack.Amount;
+                .FirstOrDefaultAsync(b => b.ItemId == item && b.CharacterId == character.CharacterId, token);
+
+            if (existingBackpack != null)
+            {
+                var amount = existingBackpack.Amount;
+
+            }
 
             var newBackpack = new Backpack
             {
                 CharacterId = character.CharacterId,
                 ItemId = item,
-                Amount = amount + 1
+                Amount = 1
             };
             
             _context.Backpacks.Add(newBackpack);
